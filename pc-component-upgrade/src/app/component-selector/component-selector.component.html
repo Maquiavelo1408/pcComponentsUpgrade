@@ -1,0 +1,28 @@
+<mat-vertical-stepper orientation="vertical" [linear]="false" #stepper [animationDuration]="'1000'">
+    <mat-step [stepControl]="motherBoardFormGroup">
+        <form [formGroup]="motherBoardFormGroup">
+            <ng-template matStepLabel>Choose your motherboard</ng-template>
+
+            <mat-form-field>
+                <mat-label>Manufacturer:</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let manuf of manufacturer" [value]="manuf">
+                        {{manuf}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Sockets:</mat-label>
+                <input matInput formControlName = "sockets">
+            </mat-form-field>
+        </form>
+
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Choose your memory RAM</ng-template>
+        <mat-form-field>
+            <input matInput>
+        </mat-form-field>
+    </mat-step>
+</mat-vertical-stepper>
